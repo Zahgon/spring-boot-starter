@@ -18,31 +18,28 @@ package sample.mybatis.xml;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import sample.mybatis.xml.dao.CityDao;
 import sample.mybatis.xml.mapper.HotelMapper;
 
 @SpringBootApplication
 public class SampleXmlApplication implements CommandLineRunner {
 
-  public static void main(String[] args) {
-    SpringApplication.run(SampleXmlApplication.class, args);
-  }
+    public static void main(String[] args) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-  private final CityDao cityDao;
+    private final CityDao cityDao;
 
-  private final HotelMapper hotelMapper;
+    private final HotelMapper hotelMapper;
 
-  public SampleXmlApplication(CityDao cityDao, HotelMapper hotelMapper) {
-    this.cityDao = cityDao;
-    this.hotelMapper = hotelMapper;
-  }
+    public SampleXmlApplication(CityDao cityDao, HotelMapper hotelMapper) {
+        this.cityDao = cityDao;
+        this.hotelMapper = hotelMapper;
+    }
 
-  @Override
-  @SuppressWarnings("squid:S106")
-  public void run(String... args) {
-    System.out.println(this.cityDao.selectCityById(1));
-    System.out.println(this.hotelMapper.selectByCityId(1));
-  }
-
+    @Override
+    @SuppressWarnings("squid:S106")
+    public void run(String... args) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

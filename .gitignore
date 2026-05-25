@@ -12,3 +12,8 @@ target/
 *.releaseBackup
 release.properties
 .github/keys/
+
+.aider*
+logs/
+.commit0_scripts/
+.github/workflows/

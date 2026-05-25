@@ -17,7 +17,6 @@ package sample.mybatis.xml.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
-
 import sample.mybatis.xml.domain.City;
 
 /**
@@ -26,14 +25,13 @@ import sample.mybatis.xml.domain.City;
 @Component
 public class CityDao {
 
-  private final SqlSession sqlSession;
+    private final SqlSession sqlSession;
 
-  public CityDao(SqlSession sqlSession) {
-    this.sqlSession = sqlSession;
-  }
+    public CityDao(SqlSession sqlSession) {
+        this.sqlSession = sqlSession;
+    }
 
-  public City selectCityById(long id) {
-    return this.sqlSession.selectOne("selectCityById", id);
-  }
-
+    public City selectCityById(long id) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

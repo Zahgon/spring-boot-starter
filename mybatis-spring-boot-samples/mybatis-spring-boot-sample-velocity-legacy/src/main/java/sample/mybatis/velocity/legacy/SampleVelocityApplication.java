@@ -18,7 +18,6 @@ package sample.mybatis.velocity.legacy;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import sample.mybatis.velocity.legacy.mapper.CityMapper;
 
 /**
@@ -27,20 +26,19 @@ import sample.mybatis.velocity.legacy.mapper.CityMapper;
 @SpringBootApplication
 public class SampleVelocityApplication implements CommandLineRunner {
 
-  public static void main(String[] args) {
-    SpringApplication.run(SampleVelocityApplication.class, args);
-  }
+    public static void main(String[] args) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-  private final CityMapper cityMapper;
+    private final CityMapper cityMapper;
 
-  public SampleVelocityApplication(CityMapper cityMapper) {
-    this.cityMapper = cityMapper;
-  }
+    public SampleVelocityApplication(CityMapper cityMapper) {
+        this.cityMapper = cityMapper;
+    }
 
-  @Override
-  @SuppressWarnings("squid:S106")
-  public void run(String... args) {
-    System.out.println(this.cityMapper.findById(1L));
-  }
-
+    @Override
+    @SuppressWarnings("squid:S106")
+    public void run(String... args) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

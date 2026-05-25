@@ -41,111 +41,113 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass(LanguageDriver.class)
 public class MybatisLanguageDriverAutoConfiguration {
 
-  private static final String CONFIGURATION_PROPERTY_PREFIX = "mybatis.scripting-language-driver";
+    private static final String CONFIGURATION_PROPERTY_PREFIX = "mybatis.scripting-language-driver";
 
-  /**
-   * Configuration class for mybatis-freemarker 1.1.x or under.
-   */
-  @Configuration(proxyBeanMethods = false)
-  @ConditionalOnClass(FreeMarkerLanguageDriver.class)
-  @ConditionalOnMissingClass("org.mybatis.scripting.freemarker.FreeMarkerLanguageDriverConfig")
-  public static class LegacyFreeMarkerConfiguration {
-    @Bean
-    @ConditionalOnMissingBean
-    FreeMarkerLanguageDriver freeMarkerLanguageDriver() {
-      return new FreeMarkerLanguageDriver();
-    }
-  }
+    /**
+     * Configuration class for mybatis-freemarker 1.1.x or under.
+     */
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnClass(FreeMarkerLanguageDriver.class)
+    @ConditionalOnMissingClass("org.mybatis.scripting.freemarker.FreeMarkerLanguageDriverConfig")
+    public static class LegacyFreeMarkerConfiguration {
 
-  /**
-   * Configuration class for mybatis-freemarker 1.2.x or above.
-   */
-  @Configuration(proxyBeanMethods = false)
-  @ConditionalOnClass({ FreeMarkerLanguageDriver.class, FreeMarkerLanguageDriverConfig.class })
-  public static class FreeMarkerConfiguration {
-    @Bean
-    @ConditionalOnMissingBean
-    FreeMarkerLanguageDriver freeMarkerLanguageDriver(FreeMarkerLanguageDriverConfig config) {
-      return new FreeMarkerLanguageDriver(config);
+        @Bean
+        @ConditionalOnMissingBean
+        FreeMarkerLanguageDriver freeMarkerLanguageDriver() {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
     }
 
-    @Bean
-    @ConditionalOnMissingBean
-    @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".freemarker")
-    public FreeMarkerLanguageDriverConfig freeMarkerLanguageDriverConfig() {
-      return FreeMarkerLanguageDriverConfig.newInstance();
-    }
-  }
+    /**
+     * Configuration class for mybatis-freemarker 1.2.x or above.
+     */
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnClass({ FreeMarkerLanguageDriver.class, FreeMarkerLanguageDriverConfig.class })
+    public static class FreeMarkerConfiguration {
 
-  /**
-   * Configuration class for mybatis-velocity 2.0 or under.
-   */
-  @Configuration(proxyBeanMethods = false)
-  @ConditionalOnClass(org.mybatis.scripting.velocity.Driver.class)
-  @ConditionalOnMissingClass("org.mybatis.scripting.velocity.VelocityLanguageDriverConfig")
-  @SuppressWarnings("deprecation")
-  public static class LegacyVelocityConfiguration {
-    @Bean
-    @ConditionalOnMissingBean
-    org.mybatis.scripting.velocity.Driver velocityLanguageDriver() {
-      return new org.mybatis.scripting.velocity.Driver();
-    }
-  }
+        @Bean
+        @ConditionalOnMissingBean
+        FreeMarkerLanguageDriver freeMarkerLanguageDriver(FreeMarkerLanguageDriverConfig config) {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
 
-  /**
-   * Configuration class for mybatis-velocity 2.1.x or above.
-   */
-  @Configuration(proxyBeanMethods = false)
-  @ConditionalOnClass({ VelocityLanguageDriver.class, VelocityLanguageDriverConfig.class })
-  public static class VelocityConfiguration {
-    @Bean
-    @ConditionalOnMissingBean
-    VelocityLanguageDriver velocityLanguageDriver(VelocityLanguageDriverConfig config) {
-      return new VelocityLanguageDriver(config);
+        @Bean
+        @ConditionalOnMissingBean
+        @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".freemarker")
+        public FreeMarkerLanguageDriverConfig freeMarkerLanguageDriverConfig() {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
     }
 
-    @Bean
-    @ConditionalOnMissingBean
-    @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".velocity")
-    public VelocityLanguageDriverConfig velocityLanguageDriverConfig() {
-      return VelocityLanguageDriverConfig.newInstance();
-    }
-  }
+    /**
+     * Configuration class for mybatis-velocity 2.0 or under.
+     */
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnClass(org.mybatis.scripting.velocity.Driver.class)
+    @ConditionalOnMissingClass("org.mybatis.scripting.velocity.VelocityLanguageDriverConfig")
+    @SuppressWarnings("deprecation")
+    public static class LegacyVelocityConfiguration {
 
-  @Configuration(proxyBeanMethods = false)
-  @ConditionalOnClass(ThymeleafLanguageDriver.class)
-  public static class ThymeleafConfiguration {
-    @Bean
-    @ConditionalOnMissingBean
-    ThymeleafLanguageDriver thymeleafLanguageDriver(ThymeleafLanguageDriverConfig config) {
-      return new ThymeleafLanguageDriver(config);
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".thymeleaf")
-    public ThymeleafLanguageDriverConfig thymeleafLanguageDriverConfig() {
-      return ThymeleafLanguageDriverConfig.newInstance();
+        @Bean
+        @ConditionalOnMissingBean
+        org.mybatis.scripting.velocity.Driver velocityLanguageDriver() {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
     }
 
-    // This class provides to avoid the https://github.com/spring-projects/spring-boot/issues/21626 as workaround.
-    @SuppressWarnings("unused")
-    private static class MetadataThymeleafLanguageDriverConfig extends ThymeleafLanguageDriverConfig {
+    /**
+     * Configuration class for mybatis-velocity 2.1.x or above.
+     */
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnClass({ VelocityLanguageDriver.class, VelocityLanguageDriverConfig.class })
+    public static class VelocityConfiguration {
 
-      @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".thymeleaf.dialect")
-      @Override
-      public DialectConfig getDialect() {
-        return super.getDialect();
-      }
+        @Bean
+        @ConditionalOnMissingBean
+        VelocityLanguageDriver velocityLanguageDriver(VelocityLanguageDriverConfig config) {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
 
-      @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".thymeleaf.template-file")
-      @Override
-      public TemplateFileConfig getTemplateFile() {
-        return super.getTemplateFile();
-      }
-
+        @Bean
+        @ConditionalOnMissingBean
+        @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".velocity")
+        public VelocityLanguageDriverConfig velocityLanguageDriverConfig() {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
     }
 
-  }
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnClass(ThymeleafLanguageDriver.class)
+    public static class ThymeleafConfiguration {
 
+        @Bean
+        @ConditionalOnMissingBean
+        ThymeleafLanguageDriver thymeleafLanguageDriver(ThymeleafLanguageDriverConfig config) {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
+
+        @Bean
+        @ConditionalOnMissingBean
+        @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".thymeleaf")
+        public ThymeleafLanguageDriverConfig thymeleafLanguageDriverConfig() {
+            throw new UnsupportedOperationException("STUB: not implemented");
+        }
+
+        // This class provides to avoid the https://github.com/spring-projects/spring-boot/issues/21626 as workaround.
+        @SuppressWarnings("unused")
+        private static class MetadataThymeleafLanguageDriverConfig extends ThymeleafLanguageDriverConfig {
+
+            @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".thymeleaf.dialect")
+            @Override
+            public DialectConfig getDialect() {
+                throw new UnsupportedOperationException("STUB: not implemented");
+            }
+
+            @ConfigurationProperties(CONFIGURATION_PROPERTY_PREFIX + ".thymeleaf.template-file")
+            @Override
+            public TemplateFileConfig getTemplateFile() {
+                throw new UnsupportedOperationException("STUB: not implemented");
+            }
+        }
+    }
 }

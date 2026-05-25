@@ -17,7 +17,6 @@ package org.mybatis.spring.boot.autoconfigure;
 
 import java.util.Collections;
 import java.util.Set;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.boot.sql.init.dependency.AbstractBeansOfTypeDependsOnDatabaseInitializationDetector;
 import org.springframework.boot.sql.init.dependency.DependsOnDatabaseInitializationDetector;
@@ -29,12 +28,10 @@ import org.springframework.boot.sql.init.dependency.DependsOnDatabaseInitializat
  *
  * @since 2.3.0
  */
-class MybatisDependsOnDatabaseInitializationDetector
-    extends AbstractBeansOfTypeDependsOnDatabaseInitializationDetector {
+class MybatisDependsOnDatabaseInitializationDetector extends AbstractBeansOfTypeDependsOnDatabaseInitializationDetector {
 
-  @Override
-  protected Set<Class<?>> getDependsOnDatabaseInitializationBeanTypes() {
-    return Collections.singleton(SqlSessionTemplate.class);
-  }
-
+    @Override
+    protected Set<Class<?>> getDependsOnDatabaseInitializationBeanTypes() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

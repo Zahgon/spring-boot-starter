@@ -23,13 +23,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class SampleWebApplication extends SpringBootServletInitializer {
 
-  public static void main(String[] args) {
-    SpringApplication.run(SampleWebApplication.class, args);
-  }
+    public static void main(String[] args) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-  @Override
-  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-    return application.sources(SampleWebApplication.class);
-  }
-
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

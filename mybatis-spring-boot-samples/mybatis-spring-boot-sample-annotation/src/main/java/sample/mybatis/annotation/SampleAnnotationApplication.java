@@ -18,26 +18,24 @@ package sample.mybatis.annotation;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import sample.mybatis.annotation.mapper.CityMapper;
 
 @SpringBootApplication
 public class SampleAnnotationApplication implements CommandLineRunner {
 
-  public static void main(String[] args) {
-    SpringApplication.run(SampleAnnotationApplication.class, args);
-  }
+    public static void main(String[] args) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-  private final CityMapper cityMapper;
+    private final CityMapper cityMapper;
 
-  public SampleAnnotationApplication(CityMapper cityMapper) {
-    this.cityMapper = cityMapper;
-  }
+    public SampleAnnotationApplication(CityMapper cityMapper) {
+        this.cityMapper = cityMapper;
+    }
 
-  @Override
-  @SuppressWarnings("squid:S106")
-  public void run(String... args) {
-    System.out.println(this.cityMapper.findByState("CA"));
-  }
-
+    @Override
+    @SuppressWarnings("squid:S106")
+    public void run(String... args) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }
